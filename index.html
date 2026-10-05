@@ -20,7 +20,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         body { 
@@ -31,6 +31,9 @@
         }
         .script-font { 
             font-family: 'Great Vibes', cursive; 
+        }
+        .arabic-script {
+            font-family: 'Amiri', serif;
         }
         /* صورة العروسين */
         .hero-bg { 
@@ -53,7 +56,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 5; /* فوق الصورة وتحت النص */
+            z-index: 5;
         }
     </style>
 </head>
@@ -134,7 +137,7 @@
         <p class="text-xs tracking-[0.4em] text-gray-400 mt-16">15 . 11 . 2026</p>
     </section>
 
-    <!-- قسم كلمات الشكر (مع الخواتم) -->
+    <!-- قسم كلمات الشكر -->
     <section class="py-24 px-6 text-center bg-white relative z-20">
         <div class="flex justify-center items-center gap-2 mb-10">
             <img src="https://cdn-icons-png.flaticon.com/512/833/833481.png" alt="Ring" class="w-10 h-10 opacity-40">
@@ -150,16 +153,16 @@
         </p>
     </section>
 
-    <!-- قسم تفاصيل القاعة والمكان -->
-    <section class="py-24 px-6 text-center bg-[#fdfcfaf5] relative z-20">
-        <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-6">The Venue</p>
-        <h2 class="script-font text-6xl md:text-7xl text-gray-800 mb-4">Qasr El Amirat Hall</h2>
-        <p class="text-gray-500 text-xs md:text-sm tracking-widest uppercase mb-6">El Entag El Harby Club, Cairo</p>
+    <!-- قسم تفاصيل القاعة والمكان (معدل للعربية) -->
+    <section class="py-24 px-6 text-center bg-[#fdfcfaf5] relative z-20" dir="rtl">
+        <p class="arabic-script text-xl text-gray-400 mb-6 tracking-wide">تفاصيل القاعة</p>
+        <h2 class="arabic-script text-5xl md:text-6xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
+        <p class="arabic-script text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
         
         <!-- موعد الاستقبال -->
-        <p class="script-font text-3xl md:text-4xl text-[#b59a7a] mb-12 drop-shadow-sm">Guest Reception Starts at 6:30 PM</p>
+        <p class="arabic-script text-3xl md:text-4xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
         
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl mx-auto" dir="ltr">
             <!-- صورة القاعة -->
             <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full rounded-[2rem] shadow-lg mb-12 object-cover h-[350px] md:h-[500px]">
             
@@ -170,7 +173,6 @@
                 </a>
                 
                 <!-- زر Add to Calendar -->
-                <!-- رابط جوجل كاليندر ببيانات الفرح (15 نوفمبر 2026 من 6:30م إلى 11:30م بتوقيت القاهرة) -->
                 <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anas+%26+Yasmeen&dates=20261115T163000Z/20261115T213000Z&details=We+are+thrilled+to+celebrate+our+special+day+with+you!&location=Qasr+El+Amirat+Hall,+El+Entag+El+Harby+Club" target="_blank" class="inline-block border border-[#b59a7a] bg-[#b59a7a] text-white px-8 py-4 rounded-full text-[10px] md:text-xs tracking-widest uppercase hover:bg-[#8e785d] transition duration-500">
                     Add to Calendar
                 </a>
@@ -185,7 +187,6 @@
     </footer>
 
     <!-- Scripts -->
-    <!-- 1. سكربت العد التنازلي (معدل لـ 15 نوفمبر) -->
     <script>
         const countDownDate = new Date("Nov 15, 2026 18:30:00").getTime();
 
@@ -210,10 +211,9 @@
         }, 1000);
     </script>
 
-    <!-- 2. مكتبة Particles.js للتأثيرات البصرية -->
+    <!-- مكتبة Particles.js للتأثيرات البصرية -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // إعدادات التأثير (نقاط متلألئة رقيقة باللون الأبيض)
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
@@ -221,7 +221,7 @@
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
                 "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
-                "line_linked": { "enable": false }, // إيقاف الخطوط لجعلها تشبه ذرات الضوء
+                "line_linked": { "enable": false }, 
                 "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
