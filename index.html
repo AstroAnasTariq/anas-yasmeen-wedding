@@ -14,13 +14,13 @@
     <meta property="og:url" content="https://AstroAnasTariq.github.io/anas-yasmeen-wedding/">
     <meta property="og:title" content="Wedding Invitation | Anas & Yasmeen">
     <meta property="og:description" content="Join us in celebrating the beginning of our forever on November 15, 2026.">
-    <!-- صورة المعاينة (يجب رفع صورة باسم preview.jpg على GitHub) -->
     <meta property="og:image" content="https://AstroAnasTariq.github.io/anas-yasmeen-wedding/preview.jpg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts (تم إضافة خط Tajawal الأنيق جداً للنصوص العربية) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         body { 
@@ -32,18 +32,20 @@
         .script-font { 
             font-family: 'Great Vibes', cursive; 
         }
-        .arabic-script {
-            font-family: 'Amiri', serif;
+        /* الخط العربي الجديد */
+        .arabic-font {
+            font-family: 'Tajawal', sans-serif;
         }
-        /* صورة العروسين */
+        
+        /* صورة العروسين الجديدة في الحديقة المبهجة */
         .hero-bg { 
-            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop');
             background-size: cover; 
             background-position: center; 
             background-attachment: fixed;
         }
         .overlay { 
-            background-color: rgba(60, 65, 55, 0.4); 
+            background-color: rgba(45, 50, 40, 0.35); /* لون خفيف لإبراز النص مع الحفاظ على بهجة الصورة */
         }
         .gold-text {
             color: #b59a7a;
@@ -68,7 +70,7 @@
     </audio>
 
     <!-- زر تشغيل الموسيقى -->
-    <button onclick="document.getElementById('bg-music').play(); this.style.display='none'" class="fixed bottom-6 right-6 bg-white/80 backdrop-blur text-gray-800 border border-gray-300 px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-100 transition text-xs tracking-widest uppercase">
+    <button onclick="document.getElementById('bg-music').play(); this.style.display='none'" class="fixed bottom-6 right-6 bg-white/80 backdrop-blur text-gray-800 border border-gray-300 px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-100 transition text-xs tracking-widest uppercase z-[100]">
         Play Music ♪
     </button>
 
@@ -76,7 +78,6 @@
     <header class="hero-bg relative h-screen flex flex-col items-center justify-center text-center text-white">
         <div class="absolute inset-0 overlay"></div>
         
-        <!-- حاوية التأثيرات البصرية -->
         <div id="particles-js"></div>
         
         <div class="relative z-10 p-4 flex flex-col items-center w-full mt-10 pointer-events-none">
@@ -140,8 +141,8 @@
     <!-- قسم كلمات الشكر -->
     <section class="py-24 px-6 text-center bg-white relative z-20">
         <div class="flex justify-center items-center gap-2 mb-10">
-            <img src="https://cdn-icons-png.flaticon.com/512/833/833481.png" alt="Ring" class="w-10 h-10 opacity-40">
-            <img src="https://cdn-icons-png.flaticon.com/512/833/833481.png" alt="Ring" class="w-10 h-10 opacity-40 -ml-4 mt-2">
+            <!-- الصورة الجديدة العصرية (الفرع النباتي الأنيق) -->
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Floral Element" class="w-12 h-12 opacity-60">
         </div>
         
         <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-6">A Note of Gratitude</p>
@@ -153,80 +154,24 @@
         </p>
     </section>
 
-    <!-- قسم تفاصيل القاعة والمكان (معدل للعربية) -->
+    <!-- قسم تفاصيل القاعة والمكان -->
     <section class="py-24 px-6 text-center bg-[#fdfcfaf5] relative z-20" dir="rtl">
-        <p class="arabic-script text-xl text-gray-400 mb-6 tracking-wide">تفاصيل القاعة</p>
-        <h2 class="arabic-script text-5xl md:text-6xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
-        <p class="arabic-script text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
+        <p class="arabic-font text-xl text-gray-400 mb-6 tracking-wide">تفاصيل القاعة</p>
+        <h2 class="arabic-font text-4xl md:text-5xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
+        <p class="arabic-font text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
         
         <!-- موعد الاستقبال -->
-        <p class="arabic-script text-3xl md:text-4xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
+        <p class="arabic-font text-2xl md:text-3xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
         
         <div class="max-w-3xl mx-auto" dir="ltr">
             <!-- صورة القاعة -->
             <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full rounded-[2rem] shadow-lg mb-12 object-cover h-[350px] md:h-[500px]">
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4" dir="rtl">
                 <!-- زر اللوكيشن -->
-                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="inline-block border border-gray-400 text-gray-600 px-8 py-4 rounded-full text-[10px] md:text-xs tracking-widest uppercase hover:bg-gray-800 hover:text-white transition duration-500">
-                    Open in Maps
+                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="arabic-font inline-block border border-gray-400 text-gray-600 px-8 py-3 rounded-full text-sm md:text-base hover:bg-gray-800 hover:text-white transition duration-500">
+                    الموقع على الخريطة
                 </a>
                 
                 <!-- زر Add to Calendar -->
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anas+%26+Yasmeen&dates=20261115T163000Z/20261115T213000Z&details=We+are+thrilled+to+celebrate+our+special+day+with+you!&location=Qasr+El+Amirat+Hall,+El+Entag+El+Harby+Club" target="_blank" class="inline-block border border-[#b59a7a] bg-[#b59a7a] text-white px-8 py-4 rounded-full text-[10px] md:text-xs tracking-widest uppercase hover:bg-[#8e785d] transition duration-500">
-                    Add to Calendar
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- التذييل (Footer) -->
-    <footer class="py-20 text-center bg-[#eae6de] text-gray-800 border-t border-gray-200 relative z-20">
-        <h2 class="script-font text-7xl md:text-8xl drop-shadow-sm">Anas &amp; Yasmeen</h2>
-        <p class="text-xs tracking-[0.4em] uppercase mt-8 opacity-50">15 . 11 . 2026</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        const countDownDate = new Date("Nov 15, 2026 18:30:00").getTime();
-
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if(distance > 0) {
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hours").innerHTML = hours;
-                document.getElementById("minutes").innerHTML = minutes;
-                document.getElementById("seconds").innerHTML = seconds;
-            } else {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "<p class='script-font text-4xl text-gray-800 w-full'>The Moment Has Arrived! 🎉</p>";
-            }
-        }, 1000);
-    </script>
-
-    <!-- مكتبة Particles.js للتأثيرات البصرية -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
-                "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
-                "line_linked": { "enable": false }, 
-                "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
-            "retina_detect": true
-        });
-    </script>
-</body>
-</html>
+                <a href="
