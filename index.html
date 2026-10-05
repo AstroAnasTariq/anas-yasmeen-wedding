@@ -1,103 +1,154 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دعوة زفاف | أنس وياسمين</title>
-    <!-- مكتبة Tailwind CSS لتنسيق الموقع بسهولة -->
+    <title>Wedding Invitation | Anas & Yasmeen</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- خطوط عربية أنيقة من جوجل -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #fdfbf7; color: #4a4a4a; }
-        .quran-text { font-family: 'Amiri', serif; }
-        /* صورة الخلفية الرئيسية (صورة عريس وعروسة بدون وجه) */
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #f7f5f0; /* لون بيج فاتح كلاسيكي */
+            color: #5a5a5a; 
+            overflow-x: hidden;
+        }
+        .script-font { 
+            font-family: 'Great Vibes', cursive; 
+        }
+        /* صورة العروسين بضهرهم في الجنينة */
         .hero-bg { 
-            background-image: url('https://media.istockphoto.com/id/1354744123/photo/groom-in-a-blue-checkered-suit-hugs-bride-in-a-white-dress-with-a-bouquet-of-flowers-close-up.jpg?s=612x612&w=0&k=20&c=1lrI1fc6GyuhtX2t-LTtYcXmV_LsfKj-tXIgivLmHO4=');
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
             background-size: cover; 
             background-position: center; 
+            background-attachment: fixed;
         }
-        .overlay { background-color: rgba(255, 255, 255, 0.75); }
+        .overlay { 
+            background-color: rgba(60, 65, 55, 0.4); /* تأثير داكن خفيف لإبراز النص */
+        }
+        .gold-text {
+            color: #b59a7a;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- مشغل الموسيقى -->
-    <!-- متصفحات الإنترنت تمنع تشغيل الصوت تلقائياً، لذا يوجد زر للتشغيل -->
     <audio id="bg-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- زر تشغيل الموسيقى يظهر أسفل الشاشة -->
-    <button onclick="document.getElementById('bg-music').play(); this.style.display='none'" class="fixed bottom-6 left-6 bg-[#8b7355] text-white px-6 py-3 rounded-full shadow-lg z-50 animate-bounce hover:bg-[#6e5a42] transition">
-        تشغيل الموسيقى 🎵
+    <!-- زر تشغيل الموسيقى -->
+    <button onclick="document.getElementById('bg-music').play(); this.style.display='none'" class="fixed bottom-6 right-6 bg-white/80 backdrop-blur text-gray-800 border border-gray-300 px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-100 transition text-xs tracking-widest uppercase">
+        Play Music ♪
     </button>
 
     <!-- القسم الرئيسي (الغلاف) -->
-    <header class="hero-bg relative h-screen flex items-center justify-center text-center">
+    <header class="hero-bg relative h-screen flex flex-col items-center justify-center text-center text-white">
         <div class="absolute inset-0 overlay"></div>
-        <div class="relative z-10 p-8">
-            <h3 class="text-xl md:text-2xl font-light mb-4 tracking-widest text-gray-800">بكل الحب نتشرف بدعوتكم لحضور حفل زفاف</h3>
-            <h1 class="text-6xl md:text-8xl font-bold text-[#8b7355] my-6">أنس & ياسمين</h1>
-            <p class="text-3xl mt-4 text-gray-800 font-semibold">15 نوفمبر</p>
-            <p class="mt-4 font-light text-xl text-gray-700">بداية فصل جديد...</p>
+        
+        <div class="relative z-10 p-4 flex flex-col items-center w-full mt-10">
+            <p class="text-xs md:text-sm tracking-[0.25em] uppercase mb-6 opacity-90">Together with their families</p>
+            
+            <div class="flex items-center gap-4 my-2 opacity-80">
+                <span class="w-10 h-[1px] bg-white"></span>
+                <span class="w-2 h-2 rotate-45 border border-white"></span>
+                <span class="w-10 h-[1px] bg-white"></span>
+            </div>
+
+            <h1 class="script-font text-8xl md:text-9xl mt-6 drop-shadow-md">Anas</h1>
+            <p class="script-font text-5xl md:text-6xl my-1 drop-shadow-md">&amp;</p>
+            <h1 class="script-font text-8xl md:text-9xl mb-8 drop-shadow-md">Yasmeen</h1>
+            
+            <p class="text-[10px] md:text-xs tracking-[0.2em] uppercase mt-6 opacity-90 leading-loose">
+                Invite you to celebrate the<br>beginning of their
+            </p>
+            <p class="script-font text-6xl md:text-7xl mt-2 mb-8 drop-shadow-md">forever</p>
+            
+            <div class="flex items-center gap-4 my-2 opacity-80">
+                <span class="w-16 h-[1px] bg-white"></span>
+            </div>
+            
+            <p class="text-sm md:text-base tracking-[0.4em] uppercase my-4 drop-shadow-sm">15 | 11 | 2026</p>
+            
+            <div class="flex items-center gap-4 my-2 opacity-80">
+                <span class="w-16 h-[1px] bg-white"></span>
+            </div>
+            
+            <p class="script-font text-4xl md:text-5xl mt-6 drop-shadow-md">A new chapter begins</p>
         </div>
     </header>
 
-    <!-- قسم الآية القرآنية -->
-    <section class="py-20 px-6 text-center bg-white">
-        <img src="https://junerings.com/cdn/shop/articles/Thumbnail-28.png" alt="Rings" class="w-40 h-40 object-cover rounded-full mx-auto mb-8 shadow-md">
-        <p class="quran-text text-2xl md:text-4xl leading-loose text-[#8b7355] max-w-4xl mx-auto">
-            "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+    <!-- قسم العد التنازلي -->
+    <section class="py-24 bg-[#fdfcfaf5] text-center px-4">
+        <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Counting every moment</p>
+        <h2 class="script-font text-6xl md:text-7xl text-gray-800 mb-16">Until we say yes</h2>
+        
+        <div id="countdown" class="flex justify-center gap-6 md:gap-16 gold-text">
+            <div class="flex flex-col items-center">
+                <span id="days" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Days</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="hours" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Hours</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="minutes" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Minutes</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="seconds" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Seconds</span>
+            </div>
+        </div>
+        <p class="text-xs tracking-[0.4em] text-gray-400 mt-16">15 . 11 . 2026</p>
+    </section>
+
+    <!-- قسم كلمات الشكر (مع الخواتم) -->
+    <section class="py-24 px-6 text-center bg-white">
+        <div class="flex justify-center items-center gap-2 mb-10">
+            <!-- الدبلتين -->
+            <img src="https://cdn-icons-png.flaticon.com/512/833/833481.png" alt="Ring" class="w-10 h-10 opacity-40">
+            <img src="https://cdn-icons-png.flaticon.com/512/833/833481.png" alt="Ring" class="w-10 h-10 opacity-40 -ml-4 mt-2">
+        </div>
+        
+        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-6">A Note of Gratitude</p>
+        <h2 class="script-font text-5xl md:text-6xl text-gray-800 mb-10">Dear Family and Friends ...</h2>
+        
+        <p class="text-gray-500 italic max-w-2xl mx-auto leading-loose text-lg md:text-xl px-4">
+            As we get ready to say "I do," we feel grateful for the wonderful people in our lives.<br><br>
+            Your support means the world to us, and we would be honored to have you with us as we begin our life together.
         </p>
     </section>
 
-    <!-- قسم العد التنازلي -->
-    <section class="py-16 bg-[#f9f6f0] text-center border-t border-b border-[#e8e0d5]">
-        <h2 class="text-3xl font-bold text-[#8b7355] mb-10">ننتظركم بشوق</h2>
-        <div id="countdown" class="flex justify-center gap-6 md:gap-12 text-[#8b7355] dir-ltr" dir="ltr">
-            <div class="flex flex-col items-center"><span id="days" class="text-5xl md:text-6xl font-bold">00</span><span class="text-lg mt-2 font-semibold">يوم</span></div>
-            <div class="flex flex-col items-center"><span id="hours" class="text-5xl md:text-6xl font-bold">00</span><span class="text-lg mt-2 font-semibold">ساعة</span></div>
-            <div class="flex flex-col items-center"><span id="minutes" class="text-5xl md:text-6xl font-bold">00</span><span class="text-lg mt-2 font-semibold">دقيقة</span></div>
-            <div class="flex flex-col items-center"><span id="seconds" class="text-5xl md:text-6xl font-bold">00</span><span class="text-lg mt-2 font-semibold">ثانية</span></div>
-        </div>
-    </section>
-
     <!-- قسم تفاصيل القاعة والمكان -->
-    <section class="py-20 px-6 text-center bg-white">
-        <h2 class="text-4xl font-bold text-[#8b7355] mb-8">تفاصيل الحفل</h2>
+    <section class="py-24 px-6 text-center bg-[#fdfcfaf5]">
+        <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-6">The Venue</p>
+        <h2 class="script-font text-6xl md:text-7xl text-gray-800 mb-4">Qasr El Amirat Hall</h2>
+        <p class="text-gray-500 text-xs md:text-sm tracking-widest uppercase mb-12">El Entag El Harby Club, Cairo</p>
         
-        <div class="max-w-2xl mx-auto bg-[#f9f6f0] p-10 rounded-2xl shadow-sm border border-[#e8e0d5]">
-            <h3 class="text-3xl font-bold mb-3 text-gray-800">قاعة قصر الاميرات</h3>
-            <p class="text-xl text-gray-600 mb-8">داخل نادي الانتاج الحربي</p>
+        <div class="max-w-3xl mx-auto">
+            <!-- صورة القاعة (سيتم قراءة ملف Venu الذي رفعته) -->
+            <img src="Venu.png" onerror="this.src='Venu.png'" alt="Venue" class="w-full rounded-[2rem] shadow-lg mb-12 object-cover h-[350px] md:h-[500px]">
             
-            <div class="flex items-center justify-center gap-3 mb-10 text-2xl bg-white p-4 rounded-lg shadow-sm w-fit mx-auto">
-                <span>⏰</span>
-                <p>استقبال الضيوف من: <span class="font-bold text-[#8b7355]">٦:٣٠ مساءً</span></p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <!-- زر اللوكيشن -->
-                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="flex-1 bg-[#8b7355] text-white px-6 py-4 rounded-lg text-lg font-bold hover:bg-[#6e5a42] transition duration-300 shadow-md">
-                    📍 لوكيشن القاعة
-                </a>
-                <!-- زر فيديو القاعة -->
-                <a href="https://www.facebook.com/share/r/19T8rvM79t/" target="_blank" class="flex-1 bg-[#3b5998] text-white px-6 py-4 rounded-lg text-lg font-bold hover:bg-[#2d4373] transition duration-300 shadow-md">
-                    🎬 فيديو للقاعة
-                </a>
-            </div>
+            <!-- زر اللوكيشن -->
+            <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="inline-block border border-gray-400 text-gray-600 px-10 py-4 rounded-full text-xs tracking-widest uppercase hover:bg-gray-800 hover:text-white transition duration-500">
+                Open in Maps
+            </a>
         </div>
     </section>
 
     <!-- التذييل (Footer) -->
-    <footer class="py-12 text-center bg-[#8b7355] text-white">
-        <p class="text-4xl font-bold mb-3 font-amiri">أنس & ياسمين</p>
-        <p class="text-lg opacity-90">نتطلع لرؤيتكم ومشاركتنا فرحتنا</p>
+    <footer class="py-20 text-center bg-[#eae6de] text-gray-800 border-t border-gray-200">
+        <h2 class="script-font text-7xl md:text-8xl drop-shadow-sm">Anas &amp; Yasmeen</h2>
+        <p class="text-xs tracking-[0.4em] uppercase mt-8 opacity-50">15 . 11 . 2026</p>
     </footer>
 
     <!-- سكربت العد التنازلي -->
     <script>
-        // قم بتعديل السنة هنا إذا كان الفرح في 2027 بدلاً من 2026
         const countDownDate = new Date("Nov 15, 2026 18:30:00").getTime();
 
         const x = setInterval(function() {
@@ -106,7 +157,7 @@
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             if(distance > 0) {
@@ -116,7 +167,7 @@
                 document.getElementById("seconds").innerHTML = seconds;
             } else {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "<p class='text-3xl font-bold w-full'>حانت اللحظة المنتظرة! 🎉</p>";
+                document.getElementById("countdown").innerHTML = "<p class='script-font text-4xl text-gray-800 w-full'>The Moment Has Arrived! 🎉</p>";
             }
         }, 1000);
     </script>
