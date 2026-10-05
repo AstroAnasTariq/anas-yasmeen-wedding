@@ -119,4 +119,133 @@
         <div id="countdown" class="flex justify-center gap-6 md:gap-16 gold-text">
             <div class="flex flex-col items-center">
                 <span id="days" class="script-font text-6xl md:text-8xl">00</span>
-                <span class="text-[10px] md:text-
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Days</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="hours" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Hours</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="minutes" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Minutes</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="seconds" class="script-font text-6xl md:text-8xl">00</span>
+                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Seconds</span>
+            </div>
+        </div>
+        <p class="text-xs tracking-[0.4em] text-gray-400 mt-16">15 . 11 . 2026</p>
+    </section>
+
+    <!-- قسم كلمات الشكر -->
+    <section class="py-24 px-6 text-center bg-white relative z-20">
+        <div class="flex justify-center items-center gap-2 mb-10">
+            <!-- الصورة الجديدة العصرية (الفرع النباتي الأنيق) -->
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Floral Element" class="w-12 h-12 opacity-60">
+        </div>
+        
+        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-6">A Note of Gratitude</p>
+        <h2 class="script-font text-5xl md:text-6xl text-gray-800 mb-10">Dear Family and Friends ...</h2>
+        
+        <p class="text-gray-500 italic max-w-2xl mx-auto leading-loose text-lg md:text-xl px-4">
+            As we get ready to say "I do," we feel grateful for the wonderful people in our lives.<br><br>
+            Your support means the world to us, and we would be honored to have you with us as we begin our life together.
+        </p>
+    </section>
+
+    <!-- قسم تفاصيل القاعة والمكان -->
+    <section class="py-24 px-6 text-center bg-[#fdfcfaf5] relative z-20" dir="rtl">
+        <p class="arabic-font text-xl text-gray-400 mb-6 tracking-wide">تفاصيل القاعة</p>
+        <h2 class="arabic-font text-4xl md:text-5xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
+        <p class="arabic-font text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
+        
+        <!-- موعد الاستقبال -->
+        <p class="arabic-font text-2xl md:text-3xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
+        
+        <div class="max-w-3xl mx-auto" dir="ltr">
+            <!-- صورة القاعة -->
+            <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full rounded-[2rem] shadow-lg mb-12 object-cover h-[350px] md:h-[500px]">
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- زر اللوكيشن بالإنجليزية -->
+                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="inline-block border border-gray-400 text-gray-600 px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-gray-800 hover:text-white transition duration-500 w-full sm:w-auto">
+                    Open in Maps
+                </a>
+                
+                <!-- زر Add to Calendar بالإنجليزية -->
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anas+%26+Yasmeen&dates=20261115T163000Z/20261115T213000Z&details=We+are+thrilled+to+celebrate+our+special+day+with+you!&location=Qasr+El+Amirat+Hall,+El+Entag+El+Harby+Club" target="_blank" class="inline-block border border-[#b59a7a] bg-[#b59a7a] text-white px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-[#8e785d] transition duration-500 w-full sm:w-auto">
+                    Add to Calendar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) - بخط إنجليزي مقروء وأصغر -->
+    <footer class="py-16 text-center bg-[#eae6de] text-gray-800 border-t border-gray-200 relative z-20">
+        <h2 class="font-['Montserrat'] text-3xl md:text-4xl font-light tracking-[0.2em] uppercase text-gray-700">Anas &amp; Yasmeen</h2>
+        <p class="text-xs tracking-[0.4em] uppercase mt-6 opacity-50">15 . 11 . 2026</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // إعداد العد التنازلي بطريقة تضمن عمله بقوة
+        document.addEventListener('DOMContentLoaded', function() {
+            const countDownDate = new Date("Nov 15, 2026 18:30:00").getTime();
+            
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+            const countdownContainer = document.getElementById("countdown");
+
+            if (daysEl && hoursEl && minutesEl && secondsEl) {
+                const x = setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = countDownDate - now;
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    if(distance > 0) {
+                        // استخدام padStart لضمان ظهور الصفر قبل الرقم (مثال: 09 بدلاً من 9)
+                        daysEl.innerHTML = String(days).padStart(2, '0');
+                        hoursEl.innerHTML = String(hours).padStart(2, '0');
+                        minutesEl.innerHTML = String(minutes).padStart(2, '0');
+                        secondsEl.innerHTML = String(seconds).padStart(2, '0');
+                    } else {
+                        clearInterval(x);
+                        if (countdownContainer) {
+                            countdownContainer.innerHTML = "<p class='script-font text-4xl text-gray-800 w-full'>The Moment Has Arrived! 🎉</p>";
+                        }
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // تفعيل المؤثرات البصرية بعد تحميل الصفحة
+        window.onload = function() {
+            if (window.particlesJS) {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": "#ffffff" },
+                        "shape": { "type": "circle" },
+                        "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                        "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+                        "line_linked": { "enable": false }, 
+                        "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                    },
+                    "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
+                    "retina_detect": true
+                });
+            }
+        };
+    </script>
+</body>
+</html>
