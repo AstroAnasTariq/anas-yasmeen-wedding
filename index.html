@@ -20,7 +20,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -28,8 +28,8 @@
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #f7f5f0; 
-            color: #5a5a5a; 
+            background-color: #f7f5f0; /* بيج فاتح */
+            color: #2c3e50; /* لون أغمق للنصوص لتحسين القراءة */
             overflow-x: hidden;
         }
         .script-font { 
@@ -39,8 +39,9 @@
             font-family: 'Tajawal', sans-serif;
         }
         .serif-font {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
         }
+        
         .hero-bg { 
             background-image: url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop');
             background-size: cover; 
@@ -51,7 +52,7 @@
             background-color: rgba(45, 50, 40, 0.35); 
         }
         .gold-text {
-            color: #b59a7a;
+            color: #a88d6c; /* لون ذهبي معدل بناءً على الصورة المرجعية */
         }
         #particles-js {
             position: absolute;
@@ -61,21 +62,42 @@
             left: 0;
             z-index: 5;
         }
-        .divider-img {
-            width: 60px;
-            margin: 0 auto 1.5rem auto;
-            opacity: 0.8;
+        
+        /* تنسيقات العداد الجديدة */
+        .countdown-separator {
+            width: 80%;
+            height: 1px;
+            background-color: #d1d5db; /* لون خط رمادي فاتح */
+            margin: 0.5rem auto;
+        }
+        
+        /* تأثير صورة القاعة */
+        .venue-img-wrapper {
+            overflow: hidden;
+            border-radius: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        .venue-img-wrapper:hover {
+            transform: scale(1.02);
+        }
+        
+        /* تنسيق قسم Save the Date */
+        .std-divider {
+            width: 100px;
+            height: 1px;
+            background-color: #2c3e50;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- مشغل الموسيقى -->
+    <!-- الموسيقى -->
     <audio id="bg-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- زر تشغيل الموسيقى -->
     <button onclick="document.getElementById('bg-music').play(); this.style.display='none'" class="fixed bottom-6 right-6 bg-white/80 backdrop-blur text-gray-800 border border-gray-300 px-4 py-2 rounded-full shadow-lg z-50 hover:bg-gray-100 transition text-xs tracking-widest uppercase z-[100]">
         Play Music ♪
     </button>
@@ -107,7 +129,7 @@
                 <span class="w-16 h-[1px] bg-white"></span>
             </div>
             
-            <p class="text-sm md:text-base tracking-[0.4em] uppercase my-4 drop-shadow-sm">15 | 11 | 2026</p>
+            <p class="text-lg md:text-xl font-medium tracking-[0.4em] uppercase my-4 drop-shadow-sm">15 | 11 | 2026</p>
             
             <div class="flex items-center gap-4 my-2 opacity-80">
                 <span class="w-16 h-[1px] bg-white"></span>
@@ -117,62 +139,70 @@
         </div>
     </header>
 
-    <!-- قسم ترحيبي بسيط (مضاف حديثاً مع باقة الورد) -->
-    <section class="pt-24 pb-12 bg-[#fdfcfaf5] text-center px-4 relative z-20">
-        <div data-aos="fade-up">
-            <img src="vec-bouquet.webp" alt="Bouquet" class="divider-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2921/2921822.png'">
-            <h2 class="serif-font text-3xl md:text-4xl tracking-widest uppercase mb-4 text-gray-800">Welcome, Dear Guest</h2>
-            <p class="italic text-lg text-gray-500 max-w-md mx-auto leading-relaxed px-4">
-                We are so excited to celebrate our special day with our family and friends.
-            </p>
+    <!-- قسم Save the Date (معدل بناءً على الصورة) -->
+    <section class="py-20 bg-[#f7f5f0] text-center px-4 relative z-20" data-aos="fade-up">
+        
+        <div class="flex justify-center items-center gap-6 mb-8">
+            <div class="w-16 h-px bg-gray-300"></div>
+            <img src="vec-champagne.webp" alt="Cheers" class="w-12 opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/913/913364.png'">
+            <div class="w-16 h-px bg-gray-300"></div>
         </div>
+
+        <h2 class="serif-font text-5xl md:text-7xl font-bold tracking-widest text-[#2c3e50] mb-2 uppercase">Save</h2>
+        <h2 class="serif-font text-4xl md:text-6xl font-bold tracking-widest text-[#2c3e50] mb-12 uppercase"><span class="italic font-light lowercase mr-2">the</span>Date!</h2>
+
+        <!-- صورة العروسين بحجم أصغر -->
+        <img src="Savethedate.webp" alt="Couple" class="w-48 md:w-56 mx-auto mb-16 opacity-90" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3571/3571216.png'">
+
+        <div class="std-divider mb-6"></div>
+        <p class="text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#2c3e50] mb-2">Anas + Yasmeen</p>
+        <p class="text-sm md:text-base font-medium tracking-[0.4em] text-gray-500">15 . 11 . 2026</p>
     </section>
 
-    <!-- قسم العد التنازلي -->
-    <section class="py-12 bg-[#fdfcfaf5] text-center px-4 relative z-20">
+    <!-- قسم العد التنازلي (معدل بناءً على الصورة) -->
+    <section class="py-24 bg-white text-center px-4 relative z-20">
         <div data-aos="fade-up">
-            <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Counting every moment</p>
-            <h2 class="script-font text-6xl md:text-7xl text-gray-800 mb-16">Until we say yes</h2>
+            <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-6">Counting every moment</p>
+            <h2 class="script-font text-6xl md:text-7xl text-[#1a202c] mb-16">Until we say I do!</h2>
         </div>
         
-        <div id="countdown" class="flex justify-center gap-6 md:gap-16 gold-text" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex flex-col items-center">
-                <span id="days" class="script-font text-6xl md:text-8xl">00</span>
-                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Days</span>
+        <div id="countdown" class="flex justify-center gap-4 md:gap-12 gold-text max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex-1 flex flex-col items-center">
+                <span id="days" class="serif-font italic text-5xl md:text-7xl font-light mb-4">00</span>
+                <div class="countdown-separator"></div>
+                <span class="text-[9px] md:text-xs tracking-widest uppercase text-gray-500 mt-2">Days</span>
             </div>
-            <div class="flex flex-col items-center">
-                <span id="hours" class="script-font text-6xl md:text-8xl">00</span>
-                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-12">Hours</span>
+            <div class="flex-1 flex flex-col items-center">
+                <span id="hours" class="serif-font italic text-5xl md:text-7xl font-light mb-4">00</span>
+                <div class="countdown-separator"></div>
+                <span class="text-[9px] md:text-xs tracking-widest uppercase text-gray-500 mt-2">Hours</span>
             </div>
-            <div class="flex flex-col items-center">
-                <span id="minutes" class="script-font text-6xl md:text-8xl">00</span>
-                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Minutes</span>
+            <div class="flex-1 flex flex-col items-center">
+                <span id="minutes" class="serif-font italic text-5xl md:text-7xl font-light mb-4">00</span>
+                <div class="countdown-separator"></div>
+                <span class="text-[9px] md:text-xs tracking-widest uppercase text-gray-500 mt-2">Minutes</span>
             </div>
-            <div class="flex flex-col items-center">
-                <span id="seconds" class="script-font text-6xl md:text-8xl">00</span>
-                <span class="text-[10px] md:text-xs tracking-widest uppercase mt-4 text-gray-500 border-t border-gray-300 pt-2 w-16">Seconds</span>
+            <div class="flex-1 flex flex-col items-center">
+                <span id="seconds" class="serif-font italic text-5xl md:text-7xl font-light mb-4">00</span>
+                <div class="countdown-separator"></div>
+                <span class="text-[9px] md:text-xs tracking-widest uppercase text-gray-500 mt-2">Seconds</span>
             </div>
         </div>
-        <p class="text-xs tracking-[0.4em] text-gray-400 mt-16" data-aos="fade-in" data-aos-delay="400">15 . 11 . 2026</p>
-    </section>
-
-    <!-- صورة العروسين (الكابل) -->
-    <section class="py-12 bg-[#fdfcfaf5]" data-aos="fade-up">
-        <img src="vec-couple.webp" alt="Couple" class="w-56 mx-auto opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3571/3571216.png'">
+        
+        <p class="text-sm md:text-base font-medium tracking-[0.5em] text-gray-500 mt-20" data-aos="fade-in" data-aos-delay="400">15 . 11 . 2026</p>
     </section>
 
     <!-- قسم كلمات الشكر -->
-    <section class="py-24 px-6 text-center bg-white relative z-20">
-        <!-- الخاتم (Save the date) -->
+    <section class="py-24 px-6 text-center bg-[#f7f5f0] relative z-20">
         <div class="flex justify-center items-center gap-2 mb-10" data-aos="zoom-in">
-            <img src="Savethedate.webp" alt="Save The Date Ring" class="w-24 opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/833/833481.png'">
+            <img src="vec-bouquet.webp" alt="Bouquet" class="w-16 opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2921/2921822.png'">
         </div>
         
         <div data-aos="fade-up">
             <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-6">A Note of Gratitude</p>
-            <h2 class="script-font text-5xl md:text-6xl text-gray-800 mb-10">Dear Family and Friends ...</h2>
+            <h2 class="script-font text-5xl md:text-6xl text-[#1a202c] mb-10">Dear Family and Friends ...</h2>
             
-            <p class="text-gray-500 italic max-w-2xl mx-auto leading-loose text-lg md:text-xl px-4">
+            <p class="text-gray-600 italic max-w-2xl mx-auto leading-loose text-lg md:text-xl px-4">
                 As we get ready to say "I do," we feel grateful for the wonderful people in our lives.<br><br>
                 Your support means the world to us, and we would be honored to have you with us as we begin our life together.
             </p>
@@ -180,42 +210,39 @@
     </section>
 
     <!-- قسم تفاصيل القاعة والمكان -->
-    <section class="py-24 px-6 text-center bg-[#fdfcfaf5] relative z-20" dir="rtl">
+    <section class="py-24 px-6 text-center bg-white relative z-20" dir="rtl">
         <div data-aos="fade-up">
             <p class="arabic-font text-xl text-gray-400 mb-6 tracking-wide">تفاصيل القاعة</p>
-            <h2 class="arabic-font text-4xl md:text-5xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
+            <h2 class="arabic-font text-4xl md:text-5xl text-[#1a202c] mb-4 font-bold">قصر الأميرات</h2>
             <p class="arabic-font text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
             
-            <!-- موعد الاستقبال مع صورة المشروب -->
-            <img src="vec-champagne.webp" alt="Cheers" class="w-12 mx-auto my-6 opacity-70" onerror="this.src='https://cdn-icons-png.flaticon.com/512/913/913364.png'">
-            <p class="arabic-font text-2xl md:text-3xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
+            <!-- موعد الاستقبال -->
+            <p class="arabic-font text-2xl md:text-3xl text-[#a88d6c] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
         </div>
         
         <div class="max-w-3xl mx-auto" dir="ltr">
-            <!-- صورة القاعة (تأثير الظهور) -->
-            <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full rounded-[2rem] shadow-lg mb-12 object-cover h-[350px] md:h-[500px]" data-aos="zoom-in" data-aos-delay="200">
+            <!-- صورة القاعة (مع تأثير Hover) -->
+            <div class="venue-img-wrapper mb-12" data-aos="zoom-in" data-aos-delay="200">
+                <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full object-cover h-[350px] md:h-[500px]">
+            </div>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="inline-block border border-gray-400 text-gray-600 px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-gray-800 hover:text-white transition duration-500 w-full sm:w-auto">
+                <a href="https://maps.app.goo.gl/qJEbQawUjGMV29K58" target="_blank" class="inline-block border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-full text-xs tracking-widest uppercase font-bold hover:bg-gray-800 hover:text-white hover:border-gray-800 transition duration-300 w-full sm:w-auto">
                     Open in Maps
                 </a>
                 
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anas+%26+Yasmeen&dates=20261115T163000Z/20261115T213000Z&details=We+are+thrilled+to+celebrate+our+special+day+with+you!&location=Qasr+El+Amirat+Hall,+El+Entag+El+Harby+Club" target="_blank" class="inline-block border border-[#b59a7a] bg-[#b59a7a] text-white px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-[#8e785d] transition duration-500 w-full sm:w-auto">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Anas+%26+Yasmeen&dates=20261115T163000Z/20261115T213000Z&details=We+are+thrilled+to+celebrate+our+special+day+with+you!&location=Qasr+El+Amirat+Hall,+El+Entag+El+Harby+Club" target="_blank" class="inline-block border-2 border-[#a88d6c] bg-[#a88d6c] text-white px-8 py-3 rounded-full text-xs tracking-widest uppercase font-bold hover:bg-[#8e7558] hover:border-[#8e7558] transition duration-300 w-full sm:w-auto">
                     Add to Calendar
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- التذييل (Footer) المعدل ليطابق القالب الجديد -->
-    <footer class="pt-16 pb-24 text-center bg-[#eae6de] relative overflow-hidden">
-        <div data-aos="fade-up" class="relative z-10 flex flex-col items-center">
-            
-            <!-- صورة الزهور في الفوتر -->
-            <img src="vec-flowers.webp" alt="Flowers" class="w-64 opacity-70 mb-8" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2921/2921822.png'">
-            
-            <h2 class="serif-font text-4xl md:text-5xl tracking-widest uppercase text-gray-800 font-semibold mb-2">ANAS & YASMEEN</h2>
-            <p class="script-font text-gray-500 text-3xl mt-4">Thank you</p>
+    <!-- التذييل (Footer) -->
+    <footer class="py-16 text-center bg-[#f7f5f0] border-t border-gray-200 relative z-20">
+        <div data-aos="fade-in">
+            <h2 class="font-['Montserrat'] text-3xl md:text-4xl font-light tracking-[0.2em] uppercase text-gray-700">Anas &amp; Yasmeen</h2>
+            <p class="text-sm md:text-base font-medium tracking-[0.4em] uppercase mt-6 text-gray-500">15 . 11 . 2026</p>
         </div>
     </footer>
 
