@@ -20,9 +20,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- AOS Library CSS (الجديد) -->
+    <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -37,6 +37,9 @@
         }
         .arabic-font {
             font-family: 'Tajawal', sans-serif;
+        }
+        .serif-font {
+            font-family: 'Cormorant Garamond', serif;
         }
         .hero-bg { 
             background-image: url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop');
@@ -58,6 +61,11 @@
             left: 0;
             z-index: 5;
         }
+        .divider-img {
+            width: 60px;
+            margin: 0 auto 1.5rem auto;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -77,7 +85,6 @@
         <div class="absolute inset-0 overlay"></div>
         <div id="particles-js"></div>
         
-        <!-- أضفنا data-aos="zoom-in" هنا -->
         <div class="relative z-10 p-4 flex flex-col items-center w-full mt-10 pointer-events-none" data-aos="zoom-in" data-aos-duration="2000">
             <p class="text-xs md:text-sm tracking-[0.25em] uppercase mb-6 opacity-90">Together with their families</p>
             
@@ -110,9 +117,19 @@
         </div>
     </header>
 
+    <!-- قسم ترحيبي بسيط (مضاف حديثاً مع باقة الورد) -->
+    <section class="pt-24 pb-12 bg-[#fdfcfaf5] text-center px-4 relative z-20">
+        <div data-aos="fade-up">
+            <img src="vec-bouquet.webp" alt="Bouquet" class="divider-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2921/2921822.png'">
+            <h2 class="serif-font text-3xl md:text-4xl tracking-widest uppercase mb-4 text-gray-800">Welcome, Dear Guest</h2>
+            <p class="italic text-lg text-gray-500 max-w-md mx-auto leading-relaxed px-4">
+                We are so excited to celebrate our special day with our family and friends.
+            </p>
+        </div>
+    </section>
+
     <!-- قسم العد التنازلي -->
-    <section class="py-24 bg-[#fdfcfaf5] text-center px-4 relative z-20">
-        <!-- أضفنا data-aos="fade-up" هنا -->
+    <section class="py-12 bg-[#fdfcfaf5] text-center px-4 relative z-20">
         <div data-aos="fade-up">
             <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Counting every moment</p>
             <h2 class="script-font text-6xl md:text-7xl text-gray-800 mb-16">Until we say yes</h2>
@@ -139,11 +156,16 @@
         <p class="text-xs tracking-[0.4em] text-gray-400 mt-16" data-aos="fade-in" data-aos-delay="400">15 . 11 . 2026</p>
     </section>
 
+    <!-- صورة العروسين (الكابل) -->
+    <section class="py-12 bg-[#fdfcfaf5]" data-aos="fade-up">
+        <img src="vec-couple.webp" alt="Couple" class="w-56 mx-auto opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3571/3571216.png'">
+    </section>
+
     <!-- قسم كلمات الشكر -->
     <section class="py-24 px-6 text-center bg-white relative z-20">
-        <!-- أضفنا التأثيرات هنا -->
+        <!-- الخاتم (Save the date) -->
         <div class="flex justify-center items-center gap-2 mb-10" data-aos="zoom-in">
-            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Floral Element" class="w-12 h-12 opacity-60">
+            <img src="Savethedate.webp" alt="Save The Date Ring" class="w-24 opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/833/833481.png'">
         </div>
         
         <div data-aos="fade-up">
@@ -164,7 +186,8 @@
             <h2 class="arabic-font text-4xl md:text-5xl text-gray-800 mb-4 font-bold">قصر الأميرات</h2>
             <p class="arabic-font text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
             
-            <!-- موعد الاستقبال -->
+            <!-- موعد الاستقبال مع صورة المشروب -->
+            <img src="vec-champagne.webp" alt="Cheers" class="w-12 mx-auto my-6 opacity-70" onerror="this.src='https://cdn-icons-png.flaticon.com/512/913/913364.png'">
             <p class="arabic-font text-2xl md:text-3xl text-[#b59a7a] mb-12 drop-shadow-sm font-bold">استقبال الضيوف يبدأ الساعة ٦:٣٠ مساءً</p>
         </div>
         
@@ -184,11 +207,15 @@
         </div>
     </section>
 
-    <!-- التذييل (Footer) -->
-    <footer class="py-16 text-center bg-[#eae6de] text-gray-800 border-t border-gray-200 relative z-20">
-        <div data-aos="fade-in">
-            <h2 class="font-['Montserrat'] text-3xl md:text-4xl font-light tracking-[0.2em] uppercase text-gray-700">Anas &amp; Yasmeen</h2>
-            <p class="text-xs tracking-[0.4em] uppercase mt-6 opacity-50">15 . 11 . 2026</p>
+    <!-- التذييل (Footer) المعدل ليطابق القالب الجديد -->
+    <footer class="pt-16 pb-24 text-center bg-[#eae6de] relative overflow-hidden">
+        <div data-aos="fade-up" class="relative z-10 flex flex-col items-center">
+            
+            <!-- صورة الزهور في الفوتر -->
+            <img src="vec-flowers.webp" alt="Flowers" class="w-64 opacity-70 mb-8" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2921/2921822.png'">
+            
+            <h2 class="serif-font text-4xl md:text-5xl tracking-widest uppercase text-gray-800 font-semibold mb-2">ANAS & YASMEEN</h2>
+            <p class="script-font text-gray-500 text-3xl mt-4">Thank you</p>
         </div>
     </footer>
 
@@ -229,14 +256,13 @@
         });
     </script>
 
-    <!-- AOS Library Script (الجديد) -->
+    <!-- AOS Library Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // تفعيل حركة AOS
         AOS.init({
-            duration: 1000, // مدة الحركة 1 ثانية
-            once: true,     // الحركة تحدث مرة واحدة فقط
-            offset: 100,    // تبدأ الحركة قبل الوصول للعنصر بـ 100 بيكسل
+            duration: 1000, 
+            once: true,     
+            offset: 100,    
         });
     </script>
 
