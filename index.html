@@ -28,9 +28,11 @@
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #f7f5f0; /* بيج فاتح */
-            color: #2c3e50; /* لون أغمق للنصوص لتحسين القراءة */
+            background-color: #f7f5f0;
+            color: #2c3e50;
             overflow-x: hidden;
+            /* منع النزول أثناء ظهور شاشة التحميل */
+            overflow-y: hidden; 
         }
         .script-font { 
             font-family: 'Great Vibes', cursive; 
@@ -49,11 +51,13 @@
             background-attachment: fixed;
         }
         .overlay { 
-            background-color: rgba(45, 50, 40, 0.35); 
+            background-color: rgba(45, 50, 40, 0.4); /* تغميق خفيف لزيادة التباين */
         }
         .gold-text {
-            color: #a88d6c; /* لون ذهبي معدل بناءً على الصورة المرجعية */
+            color: #a88d6c;
         }
+        
+        /* Particles Container */
         #particles-js {
             position: absolute;
             width: 100%;
@@ -61,13 +65,14 @@
             top: 0;
             left: 0;
             z-index: 5;
+            pointer-events: none; /* لمنع إعاقة النقر على النصوص */
         }
         
-        /* تنسيقات العداد الجديدة */
+        /* تنسيقات العداد */
         .countdown-separator {
             width: 80%;
             height: 1px;
-            background-color: #d1d5db; /* لون خط رمادي فاتح */
+            background-color: #d1d5db;
             margin: 0.5rem auto;
         }
         
@@ -89,9 +94,45 @@
             background-color: #2c3e50;
             margin: 0 auto;
         }
+
+        /* تنسيقات شاشة التحميل (Preloader) */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f7f5f0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader-content {
+            text-align: center;
+        }
+        .preloader-initials {
+            font-size: 4rem;
+            color: #a88d6c;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- شاشة التحميل الملكية -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <h1 class="script-font preloader-initials">A & Y</h1>
+            <p class="font-['Montserrat'] text-[10px] tracking-widest uppercase mt-4 text-gray-500">Just a moment...</p>
+        </div>
+    </div>
 
     <!-- الموسيقى -->
     <audio id="bg-music" loop>
@@ -105,9 +146,11 @@
     <!-- القسم الرئيسي -->
     <header class="hero-bg relative h-screen flex flex-col items-center justify-center text-center text-white">
         <div class="absolute inset-0 overlay"></div>
+        
+        <!-- تأثير الأوراق المتساقطة -->
         <div id="particles-js"></div>
         
-        <div class="relative z-10 p-4 flex flex-col items-center w-full mt-10 pointer-events-none" data-aos="zoom-in" data-aos-duration="2000">
+        <div class="relative z-10 p-4 flex flex-col items-center w-full mt-10 pointer-events-none" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000">
             <p class="text-xs md:text-sm tracking-[0.25em] uppercase mb-6 opacity-90">Together with their families</p>
             
             <div class="flex items-center gap-4 my-2 opacity-80">
@@ -139,9 +182,8 @@
         </div>
     </header>
 
-    <!-- قسم Save the Date (معدل بناءً على الصورة) -->
+    <!-- قسم Save the Date -->
     <section class="py-20 bg-[#f7f5f0] text-center px-4 relative z-20" data-aos="fade-up">
-        
         <div class="flex justify-center items-center gap-6 mb-8">
             <div class="w-16 h-px bg-gray-300"></div>
             <img src="vec-champagne.webp" alt="Cheers" class="w-12 opacity-80" onerror="this.src='https://cdn-icons-png.flaticon.com/512/913/913364.png'">
@@ -151,7 +193,6 @@
         <h2 class="serif-font text-5xl md:text-7xl font-bold tracking-widest text-[#2c3e50] mb-2 uppercase">Save</h2>
         <h2 class="serif-font text-4xl md:text-6xl font-bold tracking-widest text-[#2c3e50] mb-12 uppercase"><span class="italic font-light lowercase mr-2">the</span>Date!</h2>
 
-        <!-- صورة العروسين بحجم أصغر -->
         <img src="Savethedate.webp" alt="Couple" class="w-48 md:w-56 mx-auto mb-16 opacity-90" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3571/3571216.png'">
 
         <div class="std-divider mb-6"></div>
@@ -159,7 +200,7 @@
         <p class="text-sm md:text-base font-medium tracking-[0.4em] text-gray-500">15 . 11 . 2026</p>
     </section>
 
-    <!-- قسم العد التنازلي (معدل بناءً على الصورة) -->
+    <!-- قسم العد التنازلي -->
     <section class="py-24 bg-white text-center px-4 relative z-20">
         <div data-aos="fade-up">
             <p class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-6">Counting every moment</p>
@@ -216,12 +257,11 @@
             <h2 class="arabic-font text-4xl md:text-5xl text-[#1a202c] mb-4 font-bold">قصر الأميرات</h2>
             <p class="arabic-font text-lg md:text-xl text-gray-500 mb-6">نادي الإنتاج الحربي، القاهرة</p>
             
-            <!-- موعد الاستقبال -->
-            <p class="arabic-font text-2xl md:text-3xl text-[#a88d6c] mb-12 drop-shadow-sm font-bold">نتشرف باستقبالكم بدءاً من الساعة 6:30 مساءً</p>
+            <!-- جملة الاستقبال المعدلة -->
+            <p class="arabic-font text-2xl md:text-3xl text-[#a88d6c] mb-12 drop-shadow-sm font-bold">نتشرف باستقبالكم بدءاً من الساعة ٦:٣٠ مساءً</p>
         </div>
         
         <div class="max-w-3xl mx-auto" dir="ltr">
-            <!-- صورة القاعة (مع تأثير Hover) -->
             <div class="venue-img-wrapper mb-12" data-aos="zoom-in" data-aos-delay="200">
                 <img src="Venu.jpg" onerror="this.src='Venu.png'" alt="Venue" class="w-full object-cover h-[350px] md:h-[500px]">
             </div>
@@ -248,6 +288,17 @@
 
     <!-- Scripts -->
     <script>
+        // إزالة شاشة التحميل بعد 2 ثانية
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                document.body.style.overflowY = 'auto'; // إعادة تفعيل النزول
+            }, 2000); // 2000 مللي ثانية = 2 ثانية
+        });
+
+        // العد التنازلي
         document.addEventListener('DOMContentLoaded', function() {
             const countDownDate = new Date("Nov 15, 2026 18:30:00").getTime();
             
@@ -286,29 +337,62 @@
     <!-- AOS Library Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000, 
-            once: true,     
-            offset: 100,    
-        });
+        // تأخير تشغيل تأثيرات AOS قليلاً حتى تنتهي شاشة التحميل
+        setTimeout(function() {
+            AOS.init({
+                duration: 1000, 
+                once: true,     
+                offset: 100,    
+            });
+        }, 1500);
     </script>
 
-    <!-- Particles.js -->
+    <!-- Particles.js (أوراق ذهبية متساقطة) -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         window.onload = function() {
             if (window.particlesJS) {
                 particlesJS("particles-js", {
                     "particles": {
-                        "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-                        "color": { "value": "#ffffff" },
-                        "shape": { "type": "circle" },
-                        "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
-                        "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+                        "number": { "value": 40, "density": { "enable": true, "value_area": 1000 } },
+                        // استخدام لونين: أبيض وذهبي فاتح
+                        "color": { "value": ["#ffffff", "#e6c280", "#f2e4c9"] },
+                        // تغيير الشكل ليكون مضلع (polygon) ليحاكي أوراق الشجر/القصاصات
+                        "shape": { 
+                            "type": ["circle", "polygon"], 
+                            "polygon": { "nb_sides": 5 }
+                        },
+                        "opacity": { 
+                            "value": 0.7, 
+                            "random": true, 
+                            "anim": { "enable": true, "speed": 1, "opacity_min": 0.3, "sync": false } 
+                        },
+                        "size": { 
+                            "value": 5, 
+                            "random": true, 
+                            "anim": { "enable": false } 
+                        },
                         "line_linked": { "enable": false }, 
-                        "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                        // الحركة: تساقط للأسفل (bottom) ببطء شديد
+                        "move": { 
+                            "enable": true, 
+                            "speed": 1.5, 
+                            "direction": "bottom", 
+                            "random": true, 
+                            "straight": false, 
+                            "out_mode": "out", 
+                            "bounce": false,
+                            "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 } // حركة تمايل خفيفة
+                        }
                     },
-                    "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
+                    "interactivity": { 
+                        "detect_on": "canvas", 
+                        "events": { 
+                            "onhover": { "enable": false }, 
+                            "onclick": { "enable": false }, 
+                            "resize": true 
+                        } 
+                    },
                     "retina_detect": true
                 });
             }
